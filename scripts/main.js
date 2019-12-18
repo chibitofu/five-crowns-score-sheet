@@ -29,20 +29,40 @@ function createPlayers(){
 }
 
 function createTableBody() {
-    var tableBody = document.getElementById("table-body")
+    var allRows = ""
+    var tableRow = ""
     var rounds = 11
-    for (var i = 0; i < rounds; i ++) {
-        var tableRow = '<th scope="row">1</th>'
+    var players = 7
 
+    for (var i = 0; i < rounds + 1; i++) {
+        var currentRound = i + 1
+        if (i < 11) {
+            tableRow = '<tr><th scope="row">' + currentRound + '</th>'
+        } else {
+            tableRow += '<tr class="total-score"><th scope="row">Total</th>'
+        }
+        
+        for (var j = 0; j < players; j ++) {
+            var currentPlayer = j + 1
+            if (i < 11) {
+                tableRow += '<td><input type="number" class="form-control p' + currentPlayer + ' scores" id="r' + currentRound + '-p' + currentPlayer + '"></td>'
+                if (i == rounds && currentPlayer == players) {
+                    tableRow += '</tr>'
+                }
+            } else {
+                tableRow += '<td id="sum-p' + currentPlayer + '">0</td>'
+                if (i == 12) {
+                    tableRow += '</tr>'
+                }
+            } 
+        }
+
+        allRows += tableRow
     }
-    // <tr>
-    //     <!-- Round 1 -->
-    //     <th scope="row">1</th>
-    //     <td><input type="number" class="form-control p1 scores" id="r1-p1"></td>
-    //     <td><input type="number" class="form-control" id="r1-p2"></td>
-    // </tr>
+
+    document.getElementById("table-body").innerHTML = allRows
 }
 
 listenInputs()
 createTableHead()
-
+createTableBody()
