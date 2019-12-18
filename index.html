@@ -15,20 +15,38 @@
 </head>
 
 <body>
-    <h1>Hello</h1>
-    <table id="my_table_id"
-    data-url="data/url.json"
-    data-id-field="id"
-    data-editable-emptytext="Default empty text."
-    data-editable-url="/my/editable/update/path">
-    <thead>
-      <tr>
-        <th class="col-md-1" data-field="id" data-sortable="true" data-align="center">This is data</th>
-        <th class="col-md-4" data-field="name" data-editable="true">Name</th>
-        <th class="col-md-7" data-field="description" data-editable="true" data-editable-emptytext="Custom empty text.">Description</th>
-      </tr>
-    </thead>
-  </table>
+    <h1>Five Crowns</h1>
+    <table class="table">
+        <thead>
+            <tr id="table-head-row">
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <tr>
+                <!-- Round 1 -->
+                <th scope="row">1</th>
+                <td><input type="number" class="form-control p1 scores" id="r1-p1"></td>
+                <td><input type="number" class="form-control" id="r1-p2"></td>
+            </tr>
+            <tr>
+                <!-- Round 2 -->
+                <th scope="row">1</th>
+                <td><input type="number" class="form-control p1 scores" id="r2-p1"></td>
+                <td><input type="number" class="form-control" id="r2-p2"></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr class="total-score">
+                <th scope="row">Total</th>
+                <td id="sum-p1">0</td>
+                <td id="total-player-2">0</td>
+            </tr>
+        </tbody>
+    </table>
     <!-- main.js -->
     <script src="scripts/main.js"></script>
     <!-- jQuey -->
