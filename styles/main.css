@@ -5,3 +5,29 @@ h1 {
 .total-score {
     text-align: center;
 }
+
+.tableFixHead          {
+    overflow-y: auto;
+    height: auto;
+}
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.total-score {
+    overflow-y: auto;
+    height: 100px;
+}
+.total-score td {
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+}
+
+.total-score th {
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+}
