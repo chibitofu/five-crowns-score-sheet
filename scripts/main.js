@@ -1,18 +1,46 @@
 //Sums the scores and shows then in the Total field.
-function listenInputs(){
-    // var playerScore = document.getElementById('r1-p1')
-    var p1Score = document.querySelectorAll(".p1");
-    var scoreTally = document.querySelectorAll(".scores");
-    for (var i = 0; i < scoreTally.length; i++){
-        scoreTally[i].onkeyup = function(){
-            var p1Total = 0;
-            for (var i = 0; i < p1Score.length; i++) {
-                p1Total += Number(p1Score[i].value);
-            }
-            document.getElementById("sum-p1").innerHTML = p1Total;
+function createListener() {
+    var playerCount = 7;
+    for (var i = 0; i < playerCount; i++) {
+        currentPlayer = ".p" + (i + 1);
+        var playerScores = document.querySelectorAll(currentPlayer);
+        for (var j = 0; j < playerScores.length; j++) {
+            playerScores[j].addEventListener('input', sumScores);
         }
     }
 }
+
+function sumScores() {
+    var currentPlayer = ".p" + (Number(this.name));
+    var playerScores = document.querySelectorAll(currentPlayer);
+    var scoreSum = 0;
+    for (var i = 0; i < playerScores.length; i++) {
+        var playerSum = "sum-p" + this.name;
+        scoreSum += Number(playerScores[i].value);
+        console.log(playerScores[i])
+    }
+    console.log(scoreSum)
+    document.getElementById(playerSum).innerHTML = scoreSum; 
+}
+// function listenInputs(){
+//     var scoreTally = document.querySelectorAll(".scores");
+//     for (var i = 0; i < scoreTally.length; i++){
+//         var currentPlayer = ".p" + (i + 1);
+//         var score = document.querySelectorAll(currentPlayer);
+//         console.log(currentPlayer)
+//         scoreTally[i].onkeyup = function(){
+//             var playerSum = "sum-p" + toString(1 + i);
+//             var scoreSum = 0;
+//             console.log(playerSum);
+
+            
+//             for (var i = 0; i < score.length; i++) {
+//                 scoreSum += Number(score[i].value);
+//             }
+//             document.getElementById("sum-p1").innerHTML = scoreSum;
+//         }
+//     }
+// }
 
 function createTableHead(){
     var rowName = '<th scope="col">Name</th>'
@@ -29,29 +57,32 @@ function createPlayers(){
 }
 
 function createTableBody() {
-    var allRows = ""
-    var tableRow = ""
-    var rounds = 11
-    var players = 7
+    var allRows = "";
+    var rounds = 11;
+    var players = 7;
 
+    //add one to rounds for the total row
     for (var i = 0; i < rounds + 1; i++) {
-        var currentRound = i + 1
-        if (i < 11) {
+        var tableRow = "";
+        var currentRound = i + 1;
+        if (i < rounds) {
             tableRow = '<tr><th scope="row">' + currentRound + '</th>'
         } else {
-            tableRow += '<tr class="total-score"><th scope="row">Total</th>'
+            tableRow = '<tr class="total-score"><th scope="row">Total</th>'
         }
         
         for (var j = 0; j < players; j ++) {
             var currentPlayer = j + 1
-            if (i < 11) {
-                tableRow += '<td><input type="number" class="form-control p' + currentPlayer + ' scores" id="r' + currentRound + '-p' + currentPlayer + '"></td>'
+            if (i < rounds) {
+                tableRow += '<td><input type="number" class="form-control p' + currentPlayer + ' scores" id="r' + currentRound + '-p' + currentPlayer + '" name="' + currentPlayer + '"></td>'
+                //if it's the last player and round close the row
                 if (i == rounds && currentPlayer == players) {
                     tableRow += '</tr>'
                 }
             } else {
                 tableRow += '<td id="sum-p' + currentPlayer + '">0</td>'
-                if (i == 12) {
+                //Adds closing table row at end of the table
+                if (i == rounds + 1) {
                     tableRow += '</tr>'
                 }
             } 
@@ -63,6 +94,6 @@ function createTableBody() {
     document.getElementById("table-body").innerHTML = allRows
 }
 
-listenInputs()
 createTableHead()
 createTableBody()
+createListener()
