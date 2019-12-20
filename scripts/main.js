@@ -1,9 +1,10 @@
-function startGame(){
+$(document).ready(function() {
     createTableHead();
     createTableBody();
     createListener();
+    darkMode();
     resetGame();
-}
+})
 
 //adds an event listener to each score field.
 function createListener() {
@@ -84,7 +85,6 @@ function topPlayer() {
     var playerScores = document.querySelectorAll(".sums");
     for (var i = 0; i < playerScores.length; i++) {
         var score = playerScores[i].innerHTML;
-        console.log(playerScores[i].id)
     }
 }
 
@@ -101,5 +101,14 @@ function resetGame() {
     })
 }
 
-
-startGame();
+function darkMode() {
+    var darkToggle = document.getElementById('dark-mode');
+    //need to use jQuery because of bootstrap toggle.
+    $('#dark-mode').change(function() {
+        if (darkToggle.checked == true) {
+            $('body').addClass('dark');
+        } else {
+            $('body').removeClass('dark');
+        }
+    })
+}

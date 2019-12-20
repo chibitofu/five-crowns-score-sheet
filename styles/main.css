@@ -1,6 +1,6 @@
-h1 {
-    color: red;
-    text-align: center;
+:root   {
+    --dark-bg: #242424;
+    --dark-text: #dbdbdb;
 }
 .total-score {
     text-align: center;
@@ -30,4 +30,21 @@ h1 {
     position: sticky;
     bottom: 0;
     background-color: white;
+}
+
+.dark,
+.dark * {
+    background-color:var(--dark-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-text);
+}
+
+.dark .tableFixHead thead th {
+    background-color: var(--dark-bg);
+}
+.dark .total-score {
+    background-color: var(--dark-bg); 
+}
+.dark .total-score th {
+    background-color: var(--dark-bg);
 }

@@ -10,13 +10,23 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <!-- Bootstrap Table -->
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+  <!-- Bootstrap Toggle -->
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   <!-- CSS -->
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
-<body>
+<body class="dark">
     <h1>Five Crowns</h1>
-    <button type="button" id="reset-btn" class="btn btn-primary">Reset</button>
+
+    <div>
+        <button type="button" id="reset-btn" class="btn btn-primary">Reset</button>
+        <label>
+            <input type="checkbox" checked data-toggle="toggle" id="dark-mode" class="dark">
+            Dark Mode
+        </label>
+    </div> 
+
     <table class="table tableFixHead">
         <thead>
             <tr id="table-head-row">
@@ -25,8 +35,6 @@
         <tbody id="table-body">
         </tbody>
     </table>
-    <!-- main.js -->
-    <script src="scripts/main.js"></script>
     <!-- jQuey -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- Ajax -->
@@ -35,6 +43,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Bootstrap Table -->
     <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
-
+    <!-- Bootstrap Toggle -->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <!-- main.js -->
+    <script src="scripts/main.js"></script>
 </body>
 </html>
