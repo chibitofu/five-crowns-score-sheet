@@ -32,7 +32,7 @@ function sumScores() {
 }
 
 function createTableHead(){
-    var rowName = '<th scope="col">Name</th>'
+    var rowName = '<th scope="col" class="name-col">Name</th>'
     document.getElementById("table-head-row").innerHTML = rowName + createPlayers()
 }
 
@@ -55,7 +55,7 @@ function createTableBody() {
         var tableRow = "";
         var currentRound = i + 1;
         if (i < rounds) {
-            tableRow = '<tr><th scope="row">' + currentRound + '</th>'
+            tableRow = '<tr><th scope="row" class="name-col">' + currentRound + '</th>'
         } else {
             tableRow = '<tr class="total-score"><th scope="row">Total</th>'
         }

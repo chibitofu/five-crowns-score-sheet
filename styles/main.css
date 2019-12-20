@@ -2,8 +2,30 @@
     --dark-bg: #242424;
     --dark-text: #dbdbdb;
 }
-.total-score {
+
+.slow .toggle-group {
+    transition: left 0.7s;
+    -webkit-transition: left 0.7s;
+}
+
+#title {
+
+    padding-top: 1%;
+    color: #fcad00;
     text-align: center;
+}
+
+table * {
+    text-align: center;
+}
+
+#btn-row {
+    padding-right: 2%;
+    padding-left: 2%;
+}
+
+#clear-scores-btn {
+    margin-right: 5px;
 }
 
 .tableFixHead          {
@@ -20,6 +42,7 @@
     overflow-y: auto;
     height: 100px;
 }
+
 .total-score td {
     position: sticky;
     bottom: 0;
@@ -32,6 +55,7 @@
     background-color: white;
 }
 
+/* Dark mode settings */
 .dark,
 .dark * {
     background-color:var(--dark-bg);
@@ -47,4 +71,8 @@
 }
 .dark .total-score th {
     background-color: var(--dark-bg);
+}
+
+.dark #title {
+    color: #c48f1b;
 }
