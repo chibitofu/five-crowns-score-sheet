@@ -8,11 +8,19 @@
     -webkit-transition: left 0.7s;
 }
 
-#title {
-
+.top-nav {
     padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #4f0e6e;
+}
+
+#title {
     color: #fcad00;
     text-align: center;
+}
+
+.dark-toggle-span {
+    color: #dbdbdb;
 }
 
 table * {
