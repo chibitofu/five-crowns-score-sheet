@@ -1,3 +1,10 @@
+function startGame(){
+    createTableHead();
+    createTableBody();
+    createListener();
+    resetGame();
+}
+
 //adds an event listener to each score field.
 function createListener() {
     var playerCount = 7;
@@ -32,7 +39,7 @@ function createPlayers(){
     var playerCount = 7
     var playerName = ''
     for (var i = 0; i < playerCount; i++){
-        playerName += '<th scope="col"><input type="text" class="form-control" id="player-' + (i + 1) + '"></th>\n';
+        playerName += '<th scope="col"><input type="text" class="form-control input" id="player-' + (i + 1) + '"></th>';
     }
     return playerName;
 }
@@ -54,7 +61,7 @@ function createTableBody() {
         for (var j = 0; j < players; j ++) {
             var currentPlayer = j + 1
             if (i < rounds) {
-                tableRow += '<td><input type="number" class="form-control p' + currentPlayer + ' scores" id="r' + currentRound + '-p' + currentPlayer + '" name="' + currentPlayer + '"></td>'
+                tableRow += '<td><input type="number" class="form-control p' + currentPlayer + ' scores input" id="r' + currentRound + '-p' + currentPlayer + '" name="' + currentPlayer + '"></td>'
                 //if it's the last player and round close the row
                 if (i == rounds && currentPlayer == players) {
                     tableRow += '</tr>'
@@ -72,6 +79,7 @@ function createTableBody() {
     document.getElementById("table-body").innerHTML = allRows
 }
 
+//loop through Total row to find who has the highest score.
 function topPlayer() {
     var playerScores = document.querySelectorAll(".sums");
     for (var i = 0; i < playerScores.length; i++) {
@@ -80,7 +88,18 @@ function topPlayer() {
     }
 }
 
+function resetGame() {
+    resetButton = document.getElementById("reset-btn").addEventListener("click", function(){
+        var inputFields = document.querySelectorAll(".input");
+        var totalRow = document.querySelectorAll(".sums");
+        for (var i = 0; i < inputFields.length; i++){
+            inputFields[i].value = '';
+        }
+        for (var i = 0; i < totalRow.length; i++){
+            totalRow[i].innerHTML = "0";
+        }
+    })
+}
 
-createTableHead()
-createTableBody()
-createListener()
+
+startGame();
