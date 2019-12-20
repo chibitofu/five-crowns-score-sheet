@@ -1,10 +1,12 @@
 $(document).ready(function() {
+    startGame();
+})
+
+function startGame() {
     createTableHead();
     createTableBody();
     createListener();
-    darkMode();
-    resetGame();
-})
+}
 
 //adds an event listener to each score field.
 function createListener() {
@@ -16,6 +18,9 @@ function createListener() {
             playerScores[j].addEventListener('input', sumScores);
         }
     }
+    darkMode();
+    newGame();
+    clearScores();
 }
 
 //sums the scores and shows then in the Total field.
@@ -28,7 +33,7 @@ function sumScores() {
         scoreSum += Number(playerScores[i].value);
     }
     document.getElementById(playerSum).innerHTML = scoreSum;
-    topPlayer();
+    // topPlayer();
 }
 
 function createTableHead(){
@@ -81,19 +86,32 @@ function createTableBody() {
 }
 
 //loop through Total row to find who has the highest score.
-function topPlayer() {
-    var playerScores = document.querySelectorAll(".sums");
-    for (var i = 0; i < playerScores.length; i++) {
-        var score = playerScores[i].innerHTML;
-    }
-}
+// function topPlayer() {
+//     var playerScores = document.querySelectorAll(".sums");
+//     for (var i = 0; i < playerScores.length; i++) {
+//         var score = playerScores[i].innerHTML;
+//     }
+// }
 
-function resetGame() {
-    resetButton = document.getElementById("reset-btn").addEventListener("click", function(){
+function newGame() {
+    var resetButton = document.getElementById("new-game-btn").addEventListener("click", function(){
         var inputFields = document.querySelectorAll(".input");
         var totalRow = document.querySelectorAll(".sums");
         for (var i = 0; i < inputFields.length; i++){
             inputFields[i].value = '';
+        }
+        for (var i = 0; i < totalRow.length; i++){
+            totalRow[i].innerHTML = "0";
+        }
+    })
+}
+
+function clearScores() {
+    var clearButton = document.getElementById("clear-scores-btn").addEventListener('click', function() {
+        var scores = document.querySelectorAll(".scores");
+        var totalRow = document.querySelectorAll(".sums");
+        for (var i = 0; i < scores.length; i++){
+            scores[i].value = '';
         }
         for (var i = 0; i < totalRow.length; i++){
             totalRow[i].innerHTML = "0";
