@@ -14,14 +14,13 @@ var FiveCrowns = (function() {
     function getPlayerCount() {
          document.getElementById('player-count-button').addEventListener('click', function() {
             var playerCount = document.getElementById('player-count-input').value;
-            console.log(playerCount);
             viewScoreBoard(playerCount);
         })
     }
     
     function viewScoreBoard(playerCount) {
     
-        window.location.replace('views/score_board.html');
+        window.location.replace('views/score-board.html?players=' + playerCount);
     }
 
     return publicScope;
