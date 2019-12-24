@@ -1,0 +1,21 @@
+/* Dark mode settings */
+.dark,
+.dark * {
+    background-color:var(--dark-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-text);
+}
+
+.dark .tableFixHead thead th {
+    background-color: var(--dark-bg);
+}
+.dark .total-score {
+    background-color: var(--dark-bg); 
+}
+.dark .total-score th {
+    background-color: var(--dark-bg);
+}
+
+.dark #title {
+    color: #c48f1b;
+}
