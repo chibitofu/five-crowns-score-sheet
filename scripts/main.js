@@ -3,9 +3,24 @@ $(document).ready(function() {
 })
 
 function startGame() {
-    createTableHead();
-    createTableBody();
+    getPlayerCount()
+}
+
+function getPlayerCount() {
+     document.getElementById('player-count-button').addEventListener('click', function() {
+        var playerCount = document.getElementById('player-count-input').value;
+        console.log(playerCount);
+        viewScoreBoard(playerCount);
+    })
+    darkMode();
+}
+
+function viewScoreBoard(playerCount) {
+    window.location.replace('views/score_board.html');
     createListener();
+    createTableHead();
+    createPlayers();
+    createTableBody();
 }
 
 //adds an event listener to each score field.

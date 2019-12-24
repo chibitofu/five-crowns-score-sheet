@@ -3,6 +3,12 @@
     --dark-text: #dbdbdb;
 }
 
+#player-count-div {
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
 .slow .toggle-group {
     transition: left 0.7s;
     -webkit-transition: left 0.7s;
@@ -61,26 +67,4 @@ table * {
     position: sticky;
     bottom: 0;
     background-color: white;
-}
-
-/* Dark mode settings */
-.dark,
-.dark * {
-    background-color:var(--dark-bg);
-    color: var(--dark-text);
-    border-color: var(--dark-text);
-}
-
-.dark .tableFixHead thead th {
-    background-color: var(--dark-bg);
-}
-.dark .total-score {
-    background-color: var(--dark-bg); 
-}
-.dark .total-score th {
-    background-color: var(--dark-bg);
-}
-
-.dark #title {
-    color: #c48f1b;
 }
