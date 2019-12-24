@@ -1,14 +1,14 @@
 (function(FiveCrowns) {
     let searchParams = new URLSearchParams(window.location.search)
     var playerCount = 2;
-    
+
     if (searchParams.has('players')) {
         playerCount = parseInt(searchParams.get('players'));
     }
 
     FiveCrowns.scoreBoard = function() {
         menuBar();
-        createListener();
+        createTableHead();
     }
 
     //found in menu.js
@@ -18,20 +18,19 @@
         clearScores();
     }
 
-    //adds an event listener to each score field.
     function createListener() {
+    //adds an event listener to each score field.
         for (var i = 0; i < playerCount; i++) {
             var currentPlayer = ".p" + (i + 1);
             var playerScores = document.querySelectorAll(currentPlayer);
             for (var j = 0; j < playerScores.length; j++) {
-                playerScores[j].addEventListener('input', sumScores);
+                playerScores[j].addEventListener('input', FiveCrowns.sumScores);
             }
         }
-        createTableHead();
     }
 
     //sums the scores and shows then in the Total field.
-    function sumScores() {
+    FiveCrowns.sumScores = function() {
         var currentPlayer = ".p" + (Number(this.name));
         var playerScores = document.querySelectorAll(currentPlayer);
         var scoreSum = 0;
@@ -40,7 +39,6 @@
             scoreSum += Number(playerScores[i].value);
         }
         document.getElementById(playerSum).innerHTML = scoreSum;
-        createPlayers();
     }
 
     function createTableHead(){
@@ -89,6 +87,8 @@
             allRows += tableRow
         }
         document.getElementById("table-body").innerHTML = allRows
+
+        createListener();
     }
 
     //loop through Total row to find who has the highest score.
@@ -98,6 +98,7 @@
     //         var score = playerScores[i].innerHTML;
     //     }
     // }
+
 })(window.FiveCrowns = window.FiveCrowns || {});
 
 $(document).ready(function() {
