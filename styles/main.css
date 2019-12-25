@@ -3,8 +3,14 @@
     --dark-text: #dbdbdb;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 #player-count-form {
     margin-top: 10%;
+    background-color: white;
 }
 
 #player-count-input {
@@ -45,10 +51,11 @@ table * {
     margin-right: 5px;
 }
 
-.tableFixHead          {
+.tableFixHead {
     overflow-y: auto;
     height: auto;
 }
+
 .tableFixHead thead th {
     position: sticky;
     top: 0;
