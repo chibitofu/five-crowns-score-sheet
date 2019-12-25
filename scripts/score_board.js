@@ -13,9 +13,8 @@
 
     //found in menu.js
     function menuBar() {
-        darkMode();
-        newGame();
-        clearScores();
+        FiveCrowns.darkMode();
+        FiveCrowns.clearScores();
     }
 
     function createListener() {
@@ -24,13 +23,17 @@
             var currentPlayer = ".p" + (i + 1);
             var playerScores = document.querySelectorAll(currentPlayer);
             for (var j = 0; j < playerScores.length; j++) {
-                playerScores[j].addEventListener('input', FiveCrowns.sumScores);
+                playerScores[j].addEventListener('input', sumScores);
             }
         }
+
+        document.getElementById('modal-new-game').addEventListener('click', function() {
+            FiveCrowns.newGame();
+        });
     }
 
     //sums the scores and shows then in the Total field.
-    FiveCrowns.sumScores = function() {
+    function sumScores() {
         var currentPlayer = ".p" + (Number(this.name));
         var playerScores = document.querySelectorAll(currentPlayer);
         var scoreSum = 0;
