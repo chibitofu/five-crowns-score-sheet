@@ -52,7 +52,15 @@ var FiveCrowns = (function() {
     function getPlayerCount() {
          document.getElementById('player-count-button').addEventListener('click', function() {
             var playerCount = document.getElementById('player-count-input').value;
-            viewScoreBoard(playerCount);
+
+            //just in case the user finds a way to break the input box.
+            if (playerCount < 2){
+                window.alert("Minimum amount of players is 2. Please enter a valid amount of players.")
+            } else if(playerCount > 7) {
+                window.alert("Maximum amount of players is 7. Please enter a valid amount of players.")
+            } else {
+                viewScoreBoard(playerCount);
+            }
         })
     }
     

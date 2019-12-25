@@ -3,10 +3,13 @@
     --dark-text: #dbdbdb;
 }
 
-#player-count-div {
-    width: 25%;
-    margin: 0 auto;
+#player-count-form {
     margin-top: 10%;
+}
+
+#player-count-input {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .slow .toggle-group {
