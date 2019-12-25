@@ -42,6 +42,9 @@
             scoreSum += Number(playerScores[i].value);
         }
         document.getElementById(playerSum).innerHTML = scoreSum;
+
+        //surpress scientific notation
+        this.value = Number(this.value).toFixed(0);
     }
 
     function createTableHead(){

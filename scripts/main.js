@@ -37,7 +37,7 @@ var FiveCrowns = (function() {
     }
     
     publicScope.clearScores = function() {
-        var clearButton = document.getElementById("clear-scores-btn").addEventListener('click', function() {
+        document.getElementById("clear-scores-btn").addEventListener('click', function() {
             var scores = document.querySelectorAll(".scores");
             var totalRow = document.querySelectorAll(".sums");
             for (var i = 0; i < scores.length; i++){
