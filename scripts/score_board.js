@@ -74,7 +74,7 @@
             for (var j = 0; j < playerCount; j ++) {
                 var currentPlayer = j + 1
                 if (i < rounds) {
-                    tableRow += '<td><input type="number" class="form-control p' + currentPlayer + ' scores input" id="r' + currentRound + '-p' + currentPlayer + '" name="' + currentPlayer + '"></td>'
+                    tableRow += '<td><input type="number" class="form-control p' + currentPlayer + ' scores input" id="r' + currentRound + '-p' + currentPlayer + '" name="' + currentPlayer + '" min="0"></td>'
                     //if it's the last player and round close the row
                     if (i == rounds && currentPlayer == playerCount) {
                         tableRow += '</tr>'

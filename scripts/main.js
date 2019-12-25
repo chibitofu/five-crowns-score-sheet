@@ -33,7 +33,7 @@ var FiveCrowns = (function() {
             totalRow[i].innerHTML = "0";
         }
 
-        window.location.replace('../index.html');
+        window.location.href = '../index.html';
     }
     
     publicScope.clearScores = function() {
@@ -57,7 +57,7 @@ var FiveCrowns = (function() {
     }
     
     function viewScoreBoard(playerCount) {
-        window.location.replace('views/score-board.html?players=' + playerCount);
+        window.location.href = 'views/score-board.html?players=' + playerCount;
     }
 
     return publicScope;
