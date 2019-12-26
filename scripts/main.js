@@ -1,5 +1,13 @@
 var FiveCrowns = (function() {
     var publicScope = {};
+    let searchParams = new URLSearchParams(window.location.search)
+
+    if (searchParams.get('dark') == 'on') {
+        $('body').addClass('dark');
+    } else {
+        $('body').removeClass('dark');
+        document.getElementById('dark-mode').checked = false;
+    }
 
     publicScope.startGame = function() {
         getPlayerCount();
@@ -26,6 +34,14 @@ var FiveCrowns = (function() {
     publicScope.newGame = function() {
         var inputFields = document.querySelectorAll(".input");
         var totalRow = document.querySelectorAll(".sums");
+        var darkMode = '';
+
+        if ($('body').hasClass('dark') == true) {
+            darkMode = "on"
+        } else {
+            darkMode = "off"
+        }
+
         for (var i = 0; i < inputFields.length; i++){
             inputFields[i].value = '';
         }
@@ -33,7 +49,7 @@ var FiveCrowns = (function() {
             totalRow[i].innerHTML = "0";
         }
 
-        window.location.href = '../index.html';
+        window.location.href = '../index.html?dark=' + darkMode;
     }
     
     publicScope.clearScores = function() {
@@ -65,7 +81,14 @@ var FiveCrowns = (function() {
     }
     
     function viewScoreBoard(playerCount) {
-        window.location.href = 'views/score-board.html?players=' + playerCount;
+        var darkMode = '';
+        if ($('body').hasClass('dark') == true) {
+            darkMode = "on"
+        } else {
+            darkMode = "off"
+        }
+
+        window.location.href = 'views/score-board.html?players=' + playerCount+ '&dark=' + darkMode;
     }
 
     return publicScope;
@@ -74,5 +97,6 @@ var FiveCrowns = (function() {
 $(document).ready(function() {
     if (window.location.pathname.includes('index')) {
         FiveCrowns.startGame();
+
     }
 })

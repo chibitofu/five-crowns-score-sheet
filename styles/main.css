@@ -24,8 +24,7 @@ body {
 }
 
 .top-nav {
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding: 2%;
     background-color: #4f0e6e;
 }
 
@@ -40,6 +39,10 @@ body {
 
 table * {
     text-align: center;
+}
+
+.scores {
+    min-width: 120px;
 }
 
 #btn-row {

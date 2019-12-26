@@ -6,6 +6,12 @@
         playerCount = parseInt(searchParams.get('players'));
     }
 
+    if (searchParams.get('dark') == 'on') {
+        $('body').addClass('dark');
+    } else {
+        $('body').removeClass('dark');
+    }
+
     FiveCrowns.scoreBoard = function() {
         menuBar();
         createTableHead();
@@ -55,7 +61,7 @@
     function createPlayers(){
         var playerName = ''
         for (var i = 0; i < playerCount; i++){
-            playerName += '<th scope="col"><input type="text" class="form-control input" id="player-' + (i + 1) + '"></th>';
+            playerName += '<th scope="col"><input type="text" class="form-control player-input input" id="player-' + (i + 1) + '"></th>';
         }
         createTableBody();
         return playerName;
@@ -77,7 +83,7 @@
             for (var j = 0; j < playerCount; j ++) {
                 var currentPlayer = j + 1
                 if (i < rounds) {
-                    tableRow += '<td><input type="number" class="form-control p' + currentPlayer + ' scores input" id="r' + currentRound + '-p' + currentPlayer + '" name="' + currentPlayer + '" min="0"></td>'
+                    tableRow += '<td><input pattern="[0-9]*" type="number" class="form-control p' + currentPlayer + ' scores input" id="r' + currentRound + '-p' + currentPlayer + '" name="' + currentPlayer + '" min="0"></td>'
                     //if it's the last player and round close the row
                     if (i == rounds && currentPlayer == playerCount) {
                         tableRow += '</tr>'
