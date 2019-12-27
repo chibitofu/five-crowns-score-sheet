@@ -19,6 +19,7 @@ body {
 }
 
 #player-count-input {
+    text-align: center;
     max-width: 25%;
     margin: 0 auto;
 }
