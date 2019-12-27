@@ -30,11 +30,19 @@
         </div> 
     </div>
     <form id="player-count-form" class="form-inline justify-content-center">
-        <div id="player-count-div" class="form-group mb-2">
-            <label>Player Count</label>
-            <input type="number" id="player-count-input" class="form-control" value="2" min="2" max="7">
+        <div id="player-count-div" class="form-group mb-2 row container">
+            <div class="col-sm">
+                <label>Player Count</label>
+            </div>
+            <div class="col-sm">
+                <input pattern="[0-9]*" type="number" id="player-count-input" class="form-control" value="2" min="2" max="7">
+            </div>
         </div>
-        <button id="player-count-button" name="data" type="button" class="btn btn-info mb-2">Confirm</button>
+        <div class="container">
+            <div class="">
+                <button id="player-count-button" name="data" type="button" class="btn btn-info mb-2 btn-block">Confirm</button>
+            </div>
+        </div>
     </form>
     
     <!-- jQuey -->

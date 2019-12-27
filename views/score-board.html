@@ -23,15 +23,19 @@
         <div>
             <h1 id="title">Five Crowns</h1>
         </div>
-        <div id="btn-row">
-            <span class="dark-toggle-span">
-                <input type="checkbox" checked data-toggle="toggle" id="dark-mode" class="dark pull-right dark-toggle-button" data-onstyle="info" data-offstyle="warning" data-style="slow">
-                Dark Mode
-            </span>
-            <span class="float-right">
-                <button type="button" id="clear-scores-btn" class="btn btn-info reset-btn">Clear Scores</button>
-                <button type="button" id="new-game-btn" class="btn btn-info reset-btn" data-toggle="modal" data-target="#new-game-modal">New Game</button>
-            </span>
+        <div id="btn-row" class="row">
+            <div class="col-sm">
+                <span class="dark-toggle-span">
+                    <input type="checkbox" checked data-toggle="toggle" id="dark-mode" class="dark pull-right dark-toggle-button" data-onstyle="info" data-offstyle="warning" data-style="slow">
+                    Dark Mode
+                </span>
+            </div>
+            <div id="clear-reset-buttons" class="col-sm">
+                <span class="float-right">
+                    <button type="button" id="clear-scores-btn" class="btn btn-info reset-btn">Clear Scores</button>
+                    <button type="button" id="new-game-btn" class="btn btn-info reset-btn" data-toggle="modal" data-target="#new-game-modal">New Game</button>
+                </span>
+            </div>
         </div> 
     </div>
 

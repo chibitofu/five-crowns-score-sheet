@@ -83,12 +83,12 @@ var FiveCrowns = (function() {
     function viewScoreBoard(playerCount) {
         var darkMode = '';
         if ($('body').hasClass('dark') == true) {
-            darkMode = "on"
+            darkMode = "on";
         } else {
-            darkMode = "off"
+            darkMode = "off";
         }
 
-        window.location.href = 'views/score-board.html?players=' + playerCount+ '&dark=' + darkMode;
+        window.location.href = 'views/score-board.html?players=' + playerCount + '&dark=' + darkMode;
     }
 
     return publicScope;

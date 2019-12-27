@@ -13,9 +13,19 @@ body {
     background-color: white;
 }
 
+#player-count-div {
+    margin: 0 auto;
+    text-align: center;
+}
+
 #player-count-input {
-    margin-left: 10px;
-    margin-right: 10px;
+    max-width: 25%;
+    margin: 0 auto;
+}
+
+#player-count-button {
+    max-width: 60%;
+    margin: 0 auto;
 }
 
 .slow .toggle-group {
@@ -52,6 +62,12 @@ table * {
 
 #clear-scores-btn {
     margin-right: 5px;
+}
+
+#clear-reset-buttons {
+    margin-top: 4%;
+    margin-bottom: 2%;
+    background-color:  #4f0e6e;
 }
 
 .tableFixHead {
